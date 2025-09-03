@@ -1,3 +1,4 @@
+import { constructFrom } from "date-fns"
 import "./styles.css"
 
 class Task{
@@ -37,9 +38,11 @@ class Project{
 
 let projectList = (function(){
     let listOfProjects=[]
-    const addProject=(title)=> listOfProjects.push(new Project(title))
+    const addProject = (title)=> listOfProjects.push(new Project(title))
+    const getListNames = () => listOfProjects.map((project)=>project.projectTitle)
     const getProject = (index) => listOfProjects[index]
-    return{addProject, getProject}
+    const assignTask = (projectName) => projectName.addTask()
+    return{addProject, getProject, getListNames, assignTask}
 })()
 
 projectList.addProject('Gaming')
@@ -49,5 +52,6 @@ projectList.getProject(0).projectDisplay()
 projectList.getProject(0).taskList[1].toggleCompleteStatus()
 projectList.getProject(0).taskList[0].togglePriority()
 projectList.getProject(0).projectDisplay()
+console.log(projectList.getListNames())
 
 
