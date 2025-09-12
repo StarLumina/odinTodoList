@@ -56,13 +56,17 @@ let displayController = (function(){
         projectTitleList.removeChild(projectTitleList.lastChild)
     }}
     const populateTitleList = (titleList)=> {for(const title of titleList){
-        const newTitle = document.createElement('h6')
+        const newTitle = document.createElement('h3')
         newTitle.textContent = title
         projectTitleList.appendChild(newTitle)
     }}
-    const displayProject = (project) => {for(const task of project.getTaskList()){
+    const displayProject = (project) => {
+        const projectDOMTitle = document.createElement('h1')
+        projectDOMTitle.textContent = project.projectTitle
+        projectDisplay.appendChild(projectDOMTitle)
+        for(const task of project.getTaskList()){
         const taskDiv = document.createElement('div')
-        const taskTitle = document.createElement('h6')
+        const taskTitle = document.createElement('h3')
         taskTitle.textContent = task.taskTitle
         const dueDate = document.createElement('p')
         dueDate.textContent = `Due: ${format(task.dueDate, 'dd/MM/yyyy')}`

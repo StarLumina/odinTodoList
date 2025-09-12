@@ -1,3 +1,26 @@
 *{
     background-color: pink;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+body > * {
+    border: solid snow 1rem;
+}
+
+#sidebar, #project{
+    height: 100vh;
+    padding: 1rem;
+}
+
+#project > *{
+    margin: 0.5rem;
+}
+
